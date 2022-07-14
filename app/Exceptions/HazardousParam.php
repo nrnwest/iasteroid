@@ -6,7 +6,7 @@ namespace App\Exceptions;
 
 class HazardousParam extends \Exception
 {
-    private const MESSAGES = 'Invalid param: ';
+    private const MESSAGES = 'valid values: false or true. you specified: ';
 
     public function __construct(?string $message = "")
     {

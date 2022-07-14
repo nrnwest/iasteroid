@@ -11,11 +11,12 @@ return [
     'api_key' => 'lG3ctBdAU2Gb46AcogyWr2GuTaOj4wkAY2emtXv9',
     'url' => 'https://api.nasa.gov/neo/rest/v1/feed?start_date={startDate}&end_date={endDate}&api_key=',
 
-    // period in seconds (3 days)
+    // how many days to receive data? indicate in seconds
     'period' => 259200,
 
+    // local file with data about asteroids
     'path_file' => __DIR__ . '/../resources/asteroid/asteroid.json',
 
     // file || nasa
-    'getData' => 'file',
+    'getData' => 'nasa',
 ];

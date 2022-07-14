@@ -4,7 +4,7 @@ namespace Database\Seeders;
 
 namespace Database\Seeders;
 
-use App\Services\AsteroidJson;
+use App\Services\AsteroidData;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
@@ -19,7 +19,7 @@ class AsteroidSeeder extends Seeder
      */
     public function run()
     {
-        $asteroids = new AsteroidJson();
+        $asteroids = new AsteroidData();
         foreach ($asteroids->get()->near_earth_objects as $values) {
             foreach ($values as $asteroid) {
                 $approachData = $asteroid->close_approach_data[0];

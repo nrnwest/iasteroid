@@ -31,7 +31,7 @@ class Iasteroid
     {
         $hazardous = ($hazardous === self::HAZARDOUS_FALSE || $hazardous === null) ? 0 : 1;
         return Asteroid::where(self::KEY_HAZARDOUS, $hazardous)
-            ->orderBy(self::COLUMN_ORDER)
+            ->orderBy(self::COLUMN_ORDER, 'desc')
             ->get();
     }
 

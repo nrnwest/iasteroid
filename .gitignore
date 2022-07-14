@@ -12,4 +12,4 @@ yarn-error.log
 /.vscode
 /public/coverage
 application_php_errors.log
-/databases
+/_databases

@@ -1,7 +1,8 @@
 <?php
 
-namespace Http\Controllers\Api\V1;
+declare(strict_types=1);
 
+namespace Http\Controllers\Api\V1;
 
 use Tests\TestCase;
 

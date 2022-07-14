@@ -23,7 +23,7 @@ class NeoController extends Controller
      *     path="/api/v1/hazardous",
      *     operationId="hazardous",
      *     tags={"Asteroids"},
-     *     summary="Asteroids - NeoWs hazardous",
+     *     summary="all dangerous asteroids",
      *
      * @OA\Response(
      *         response="200",
@@ -41,7 +41,7 @@ class NeoController extends Controller
      *     path="/api/v1/fastest",
      *     operationId="fastest",
      *     tags={"Asteroids"},
-     *     summary="asteroid speed",
+     *     summary="dangerous, not dangerous, fastest first",
      *     @OA\Parameter(
      *         name="hazardous",
      *         in="query",
@@ -49,11 +49,12 @@ class NeoController extends Controller
      *         required=true,
      *         @OA\Schema(
      *             type="string",
+     *             default=false,
      *         )
      *     ),
      *     @OA\Response(
      *         response="200",
-     *         description="the fastest and most dangerous asteroids in three days"
+     *         description="reflects dangerous or non-dangerous asteroids, always the fastest first"
      *     ),
      * )
      */

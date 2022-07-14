@@ -22,7 +22,7 @@ namespace App\Http\Controllers\Api;
  * )
  * @OA\Tag(
  *     name="Asteroids",
- *     description="dangerous asteroids near the earth",
+ *     description="Asteroids are dangerous and not, displayed for the last three days from the NASA server",
  * )
  * @OA\Server(
  *     description="Asteroids - NeoWs, NASA",
