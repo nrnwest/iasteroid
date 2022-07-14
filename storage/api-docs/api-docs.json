@@ -1,0 +1,85 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Asteroids - NeoWs",
+        "contact": {
+            "email": "nrnwest@gmail.com"
+        },
+        "license": {
+            "name": "Apache 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+        },
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "http://localhost/",
+            "description": "Asteroids - NeoWs, NASA"
+        }
+    ],
+    "paths": {
+        "/api/v1/hazardous": {
+            "get": {
+                "tags": [
+                    "Asteroids"
+                ],
+                "summary": "Asteroids - NeoWs hazardous",
+                "operationId": "hazardous",
+                "responses": {
+                    "200": {
+                        "description": "Asteroid hazardous "
+                    }
+                }
+            }
+        },
+        "/api/v1/fastest": {
+            "get": {
+                "tags": [
+                    "Asteroids"
+                ],
+                "summary": "asteroid speed",
+                "operationId": "fastest",
+                "parameters": [
+                    {
+                        "name": "hazardous",
+                        "in": "query",
+                        "description": "hazardous: true | false",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "the fastest and most dangerous asteroids in three days"
+                    }
+                }
+            }
+        },
+        "/": {
+            "get": {
+                "tags": [
+                    "Inernature"
+                ],
+                "summary": "Back-End PHP Intern",
+                "operationId": "index",
+                "responses": {
+                    "200": {
+                        "description": "Back-End PHP Intern MacPaw 2022"
+                    }
+                }
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "Inernature",
+            "description": "Back-End PHP Intern MacRaw"
+        },
+        {
+            "name": "Asteroids",
+            "description": "dangerous asteroids near the earth"
+        }
+    ]
+}
