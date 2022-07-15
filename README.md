@@ -13,7 +13,7 @@ docker-compose up -d
 docker exec -it iasteroid_app bash
 ```
 ```bash
-chmod 777 ./storage/ -R 
+chmod 777 ./storage/ -R
 ```
 ```bash
 composer install
