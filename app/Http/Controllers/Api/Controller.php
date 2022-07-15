@@ -6,7 +6,7 @@ namespace App\Http\Controllers\Api;
 
 /**
  * @OA\Info(
- *     title="Asteroids - NeoWs",
+ *     title="Asteroids - NeoWs, Intern MacRaw 2022",
  *     version="1.0.0",
  *     @OA\Contact(
  *         email="nrnwest@gmail.com"
