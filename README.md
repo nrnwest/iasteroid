@@ -41,7 +41,7 @@ By default, data is obtained from the NASA server for the last three days.
 To view data from a local file with demo data, 
 edit the parameter in the config file config/iasteroid.php:
 
-`getData' => 'file'`
+`get_data' => 'file'`
 ```bash
 docker exec -it iasteroid_app bash
 ```

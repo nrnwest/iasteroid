@@ -18,5 +18,5 @@ return [
     'path_file' => __DIR__ . '/../resources/asteroid/asteroid.json',
 
     // file || nasa
-    'getData' => 'nasa',
+    'get_data' => 'nasa',
 ];

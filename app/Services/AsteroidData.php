@@ -12,9 +12,12 @@ class AsteroidData
 
     private string $getData;
 
-    public function __construct()
+    /**
+     * @param string $getData file - data from local file, nasa  - data from nasa server
+     */
+    public function __construct(string $getData)
     {
-        $this->getData = config('iasteroid.getData');
+        $this->getData = $getData;
     }
 
     public function get()

@@ -7,6 +7,7 @@ namespace Database\Seeders;
 use App\Services\AsteroidData;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use PHPUnit\Framework\MockObject\ConfigurableMethodsAlreadyInitializedException;
 
 class AsteroidSeeder extends Seeder
 {
@@ -19,7 +20,7 @@ class AsteroidSeeder extends Seeder
      */
     public function run()
     {
-        $asteroids = new AsteroidData();
+        $asteroids = new AsteroidData(config('iasteroid.get_data'));
         foreach ($asteroids->get()->near_earth_objects as $values) {
             foreach ($values as $asteroid) {
                 $approachData = $asteroid->close_approach_data[0];
