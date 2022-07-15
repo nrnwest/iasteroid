@@ -1,21 +1,15 @@
 FROM phpdockerio/php:8.1-fpm
 WORKDIR "/application"
 
-RUN apt-get update && apt-get install -y \
+RUN apt-get update; \
+      apt-get -y --no-install-recommends install \
       apt-utils \
       libpq-dev \
       libpng-dev \
       libzip-dev \
       zip unzip \
-      git && \
-      docker-php-ext-install pdo_mysql && \
-      docker-php-ext-install bcmath && \
-      docker-php-ext-install gd && \
-      docker-php-ext-install zip && \
-      apt-get clean && \
-      rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* \
-RUN apt-get update; \
-      apt-get -y --no-install-recommends install \
+      php8.1-gd \
+      php8.1-zip \
       php8.1-xdebug \
       php8.1-mysql \
       php8.1-redis \
