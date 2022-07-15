@@ -23,7 +23,7 @@
                 "tags": [
                     "Asteroids"
                 ],
-                "summary": "Asteroids - NeoWs hazardous",
+                "summary": "all dangerous asteroids",
                 "operationId": "hazardous",
                 "responses": {
                     "200": {
@@ -37,7 +37,7 @@
                 "tags": [
                     "Asteroids"
                 ],
-                "summary": "asteroid speed",
+                "summary": "dangerous, not dangerous, fastest first",
                 "operationId": "fastest",
                 "parameters": [
                     {
@@ -46,13 +46,14 @@
                         "description": "hazardous: true | false",
                         "required": true,
                         "schema": {
-                            "type": "string"
+                            "type": "string",
+                            "default": false
                         }
                     }
                 ],
                 "responses": {
                     "200": {
-                        "description": "the fastest and most dangerous asteroids in three days"
+                        "description": "reflects dangerous or non-dangerous asteroids, always the fastest first"
                     }
                 }
             }
@@ -79,7 +80,7 @@
         },
         {
             "name": "Asteroids",
-            "description": "dangerous asteroids near the earth"
+            "description": "Asteroids are dangerous and not, displayed for the last three days from the NASA server"
         }
     ]
 }
