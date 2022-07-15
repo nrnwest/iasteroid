@@ -26,7 +26,7 @@ php vendor/phpunit/phpunit/phpunit
 ```
 ### I understand bad practice but I don't know how to do it yet.
 ```bash
-chmod 777 ./storage/ -R 
+chmod a+wr ./storage/ -R 
 ```
 ###installed in the system swagger
 http://localhost/api/documentation
