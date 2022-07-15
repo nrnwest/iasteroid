@@ -6,8 +6,8 @@ namespace App\Http\Controllers\Api\V1;
 
 use App\Http\Controllers\Api\Controller;
 use App\Services\Iasteroid;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
-use Illuminate\Http\Response;
 
 class NeoController extends Controller
 {
@@ -31,9 +31,9 @@ class NeoController extends Controller
      *     ),
      * )
      */
-    public function hazardous(): Response
+    public function hazardous(): JsonResponse
     {
-        return response($this->iasteroid->getHazardousAsteroids());
+        return response()->json($this->iasteroid->getHazardousAsteroids());
     }
 
     /**
@@ -60,6 +60,6 @@ class NeoController extends Controller
      */
     public function fastest(Request $request)
     {
-        return response($this->iasteroid->getFastest($request->get(Iasteroid::KEY_HAZARDOUS)));
+        return response()->json($this->iasteroid->getFastest($request->get(Iasteroid::KEY_HAZARDOUS)));
     }
 }

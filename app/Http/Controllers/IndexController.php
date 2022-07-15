@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace App\Http\Controllers;
 
 use App\Services\Iasteroid;
-use Illuminate\Http\Response;
+use Illuminate\Http\JsonResponse;
 
 class IndexController extends Controller
 {
@@ -29,9 +29,9 @@ class IndexController extends Controller
      *     ),
      * )
      */
-    public function index(): Response
+    public function index(): JsonResponse
     {
-        return response($this->iasteroid->getHi());
+        return response()->json($this->iasteroid->getHi());
     }
 
 }
