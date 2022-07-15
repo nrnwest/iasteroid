@@ -1,46 +1,54 @@
-1. git clone https://github.com/nrnwest/iasteroid.git iasteroid_nrnwest
-2. docker-compose build
-3. docker-compose up -d
-4. docker exec -it iasteroid_app bash
-5. composer install
-6. php artisan migrate
-7. php artisan db:seed
-8. php vendor/phpunit/phpunit/phpunit
-9. sudo chmod 777 -R ./
-10. sudo chmod 755 -R ./public
-
-
-// api
+##MacPaw Internship 2022
+### Deployment
+```bash
+git clone https://github.com/nrnwest/iasteroid.git iasteroid_nrnwest
+```
+```bash
+cd iasteroid_nrnwest
+```
+```bash
+docker-compose build
+```
+```bash
+docker-compose up -d
+```
+```bash
+docker exec -it iasteroid_app bash
+```
+```bash
+composer install
+```
+```bash
+php artisan migrate
+```
+```bash
+php artisan db:seed
+```
+```bash
+php vendor/phpunit/phpunit/phpunit
+```
+### I understand bad practice but I don't know how to do it yet.
+```bash
+chmod 777 ./storage/ -R 
+```
+###installed in the system swagger
 http://localhost/api/documentation
 
-http://localhost
-http://localhost/api/v1/hazardous
-http://localhost/api/v1/fastest?hazardous=false
-http://localhost/api/v1/fastest?hazardous=true
+###or just use to view the url
+1. http://localhost
+2. http://localhost/api/v1/hazardous
+3. http://localhost/api/v1/fastest?hazardous=false
+4. http://localhost/api/v1/fastest?hazardous=true
 
+###Set data file local:
+By default, data is obtained from the NASA server for the last three days.
+To view data from a local file with demo data, 
+edit the parameter in the config file config/iasteroid.php:
 
-Installing data in the database:
-
-1. docker exec -it iasteroid_app bash
-2. php artisan migrate
-3. php artisan db:seed
-4. edit the data source in the file /config/iasteroid.php  for example: 'getData' => 'nasa'
-5. php artisan migrate:rollback
-6. php artisan db:seed
-
-Run test:
-1. docker exec -it iasteroid_app bash
-2. php vendor/phpunit/phpunit/phpunit
-
-Задачи:
-1) Убрать лишние с конфига +
-2) переходим к контролерам +
-3) пишем тесты + 
-4) переходим к комитам swagger+
-5) Рефлакторинг имена сервисов и так дальше продумываем+
-6) в файле установки Php наводим порядок +
-7) закидываем все на гит - лицензиу установим +
-8) пишем файл Реадме для розвертынваия приложения
-
-
-new
+`getData' => 'file'`
+```bash
+docker exec -it iasteroid_app bash
+```
+```bash
+php artisan db:seed
+```

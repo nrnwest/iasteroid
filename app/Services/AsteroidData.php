@@ -10,7 +10,6 @@ class AsteroidData
     private const END_DATE = '{endDate}';
     private const FORMAT_DATE = 'Y-m-d';
 
-
     private string $getData;
 
     public function __construct()

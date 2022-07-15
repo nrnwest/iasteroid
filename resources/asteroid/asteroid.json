@@ -83,7 +83,7 @@
                         "estimated_diameter_max": 323.6123073718
                     }
                 },
-                "is_potentially_hazardous_asteroid": false,
+                "is_potentially_hazardous_asteroid": true,
                 "close_approach_data": [
                     {
                         "close_approach_date": "2022-07-11",
@@ -132,7 +132,7 @@
                         "estimated_diameter_max": 2041.8556210042
                     }
                 },
-                "is_potentially_hazardous_asteroid": false,
+                "is_potentially_hazardous_asteroid": true,
                 "close_approach_data": [
                     {
                         "close_approach_date": "2022-07-11",
