@@ -13,6 +13,9 @@ docker-compose up -d
 docker exec -it iasteroid_app bash
 ```
 ```bash
+chmod 777 ./storage/ -R 
+```
+```bash
 composer install
 ```
 ```bash
@@ -23,10 +26,6 @@ php artisan db:seed
 ```
 ```bash
 php vendor/phpunit/phpunit/phpunit
-```
-### I understand bad practice but I don't know how to do it yet.
-```bash
-chmod 777 ./storage/ -R 
 ```
 ###installed in the system swagger
 http://localhost/api/documentation
