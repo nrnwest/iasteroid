@@ -7,9 +7,6 @@ git clone https://github.com/nrnwest/iasteroid.git iasteroid_nrnwest
 cd iasteroid_nrnwest
 ```
 ```bash
-docker-compose build
-```
-```bash
 docker-compose up -d
 ```
 ```bash

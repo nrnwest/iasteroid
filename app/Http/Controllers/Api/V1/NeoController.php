@@ -23,7 +23,7 @@ class NeoController extends Controller
      *     path="/api/v1/hazardous",
      *     operationId="hazardous",
      *     tags={"Asteroids"},
-     *     summary="all dangerous asteroids",
+     *     summary="all dangerous asteroids, they may not have been in the last three days",
      *
      * @OA\Response(
      *         response="200",
