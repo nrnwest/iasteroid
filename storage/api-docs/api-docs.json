@@ -23,7 +23,7 @@
                 "tags": [
                     "Asteroids"
                 ],
-                "summary": "all dangerous asteroids",
+                "summary": "all dangerous asteroids, they may not have been in the last three days",
                 "operationId": "hazardous",
                 "responses": {
                     "200": {
