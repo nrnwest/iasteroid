@@ -5,29 +5,14 @@ git clone https://github.com/nrnwest/iasteroid.git iasteroid_nrnwest
 ```
 ```bash
 cd iasteroid_nrnwest
-```
-```bash
 docker-compose up -d
-```
-```bash
-docker-compose exec app chown -R www-data:www-data /application/public
-```
-```bash
-docker-compose exec app chown -R www-data:www-data /application/storage
+docker-compose exec app chown -R www-data:www-data /application/public /application/storage
 ```
 ```bash
 docker exec -it iasteroid_app bash
-```
-```bash
 composer install
-```
-```bash
 php artisan migrate
-```
-```bash
 php artisan db:seed
-```
-```bash
 php vendor/phpunit/phpunit/phpunit
 ```
 ###installed in the system swagger
