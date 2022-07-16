@@ -16,7 +16,7 @@ docker exec -it iasteroid_app bash
 docker-compose exec app chown -R www-data:www-data /application/public
 ```
 ```bash
-docker-compose exec app chown -R www-data:www-data /application/storage -R
+docker-compose exec app chown -R www-data:www-data /application/storage
 ```
 ```bash
 composer install
