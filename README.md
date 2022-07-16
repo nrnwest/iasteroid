@@ -10,13 +10,13 @@ cd iasteroid_nrnwest
 docker-compose up -d
 ```
 ```bash
-docker exec -it iasteroid_app bash
-```
-```bash
 docker-compose exec app chown -R www-data:www-data /application/public
 ```
 ```bash
 docker-compose exec app chown -R www-data:www-data /application/storage
+```
+```bash
+docker exec -it iasteroid_app bash
 ```
 ```bash
 composer install
