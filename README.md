@@ -1,6 +1,7 @@
-##MacPaw Internship 2022
+MacPaw Internship 2022
+===========================
 ### Deployment
-```bash
+```
 git clone https://github.com/nrnwest/iasteroid.git iasteroid_nrnwest
 ```
 ```bash
@@ -15,24 +16,26 @@ php artisan migrate
 php artisan db:seed
 php vendor/phpunit/phpunit/phpunit
 ```
-###installed in the system swagger
-http://localhost/api/documentation
+### Installed in the system swagger
+`http://localhost/api/documentation`
 
-###or just use to view the url
+### or just use to view the url
 1. http://localhost
 2. http://localhost/api/v1/hazardous
 3. http://localhost/api/v1/fastest?hazardous=false
 4. http://localhost/api/v1/fastest?hazardous=true
 
-###Set data file local:
+### Set data file local:
 By default, data is obtained from the NASA server for the last three days.
 To view data from a local file with demo data, 
-edit the parameter in the config file config/iasteroid.php:
+edit the parameter in the config file or nasa:
 
+`config/iasteroid.php =>`
 `get_data' => 'file'`
 ```bash
 docker exec -it iasteroid_app bash
 ```
+fill the database with data
 ```bash
 php artisan db:seed
 ```
