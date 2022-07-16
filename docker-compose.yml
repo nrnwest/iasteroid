@@ -17,6 +17,8 @@ services:
         ports:
                 - "16306:3306"
         command: mysqld --character-set-server=utf8 --collation-server=utf8_unicode_ci
+        networks:
+            - default
 
     webserver:
         image: 'nginx:alpine'
@@ -28,6 +30,8 @@ services:
         ports:
             - '80:80'
         container_name: iasteroid_nginx
+        networks:
+            - default
 
     app:
         build: _docker/php-fpm
@@ -37,3 +41,5 @@ services:
             - '.:/application'
             - './_docker/php-fpm/php-ini-overrides.ini:/etc/php/8.1/fpm/conf.d/99-overrides.ini'
         container_name: iasteroid_app
+        networks:
+            - default
