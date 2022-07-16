@@ -32,6 +32,7 @@ services:
 
     app:
         build: _docker/php-fpm
+        restart: always
         working_dir: /application
         volumes:
             - '.:/application'

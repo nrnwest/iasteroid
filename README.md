@@ -13,7 +13,10 @@ docker-compose up -d
 docker exec -it iasteroid_app bash
 ```
 ```bash
-chmod 777 ./storage/ -R
+docker-compose exec app chown -R www-data:www-data /application/public
+```
+```bash
+docker-compose exec app chown -R www-data:www-data /application/storage -R
 ```
 ```bash
 composer install
