@@ -39,3 +39,4 @@ fill the database with data
 ```bash
 php artisan db:seed
 ```
+
