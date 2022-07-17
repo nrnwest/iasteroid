@@ -2,11 +2,9 @@ MacPaw Internship 2022
 ===========================
 ### Deployment
 ```bash
-git clone https://github.com/nrnwest/iasteroid.git iasteroid_nrnwest
+git clone https://github.com/nrnwest/iasteroid.git
 ```
 ```bash
-cd iasteroid_nrnwest
-
 docker-compose up -d
 
 docker-compose exec app chown -R www-data:www-data /application/public /application/storage
