@@ -34,9 +34,7 @@ class AsteroidSeeder extends Seeder
         }
     }
 
-
-    private function writeAsteroid
-    (
+    private function writeAsteroid(
         Asteroid $asteroid,
         string $referenced,
         string $name,
@@ -51,5 +49,4 @@ class AsteroidSeeder extends Seeder
         $asteroid->hazardous = $hazardous;
         $asteroid->save();
     }
-
 }
