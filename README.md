@@ -25,18 +25,15 @@ php vendor/phpunit/phpunit/phpunit
 3. [localhost/api/v1/fastest?hazardous=false](http://localhost/api/v1/fastest?hazardous=false)
 4. [localhost/api/v1/fastest?hazardous=true](http://localhost/api/v1/fastest?hazardous=true)
 
-### Set data file local:
+### Set data file local
 By default, data is obtained from the NASA server for the last three days.
 To view data from a local file with demo data, 
 edit the parameter in the config file or nasa:
 
 `config/iasteroid.php =>`
 `get_data' => 'file'`
+### Populate the database from a local file
 ```bash
 docker exec -it iasteroid_app bash
-```
-fill the database with data
-```bash
 php artisan db:seed
 ```
-
