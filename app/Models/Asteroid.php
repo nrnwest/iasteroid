@@ -10,5 +10,6 @@ class Asteroid extends Model
     use HasFactory;
 
     protected $table = 'asteroids';
+    protected $guarded = false;
 
 }
