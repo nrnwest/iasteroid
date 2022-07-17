@@ -8,13 +8,13 @@ use Tests\TestCase;
 
 class NeoControllerTest extends TestCase
 {
-    public function testHazardous()
+    public function testHazardous(): void
     {
         $response = $this->get('/api/v1/hazardous');
         $response->assertStatus(200);
     }
 
-    public function testFastest()
+    public function testFastest(): void
     {
         $response = $this->get('/api/v1/fastest');
         $response->assertStatus(200);

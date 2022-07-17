@@ -58,7 +58,7 @@ class NeoController extends Controller
      *     ),
      * )
      */
-    public function fastest(Request $request)
+    public function fastest(Request $request): JsonResponse
     {
         return response()->json($this->iasteroid->getFastest($request->get(Iasteroid::KEY_HAZARDOUS)));
     }

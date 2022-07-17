@@ -20,7 +20,7 @@ class IndexControllerTest extends TestCase
         $response->assertJsonPath($name, $valueName);
     }
 
-    public function dataValueJson()
+    public function dataValueJson(): array
     {
         $name = 'hello';
         $valueName = 'MacPaw Internship 2022!';

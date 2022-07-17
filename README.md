@@ -6,15 +6,23 @@ git clone https://github.com/nrnwest/iasteroid.git iasteroid_nrnwest
 ```
 ```bash
 cd iasteroid_nrnwest
+
 docker-compose up -d
+
 docker-compose exec app chown -R www-data:www-data /application/public /application/storage
-```
+
+````
 ```bash
 docker exec -it iasteroid_app bash
+
 composer install
+
 php artisan migrate
+
 php artisan db:seed
+
 php vendor/phpunit/phpunit/phpunit
+
 ```
 ### Installed in the system swagger
 [localhost/api/documentation](http://localhost/api/documentation)
@@ -35,5 +43,11 @@ edit the parameter in the config file or nasa:
 ### Populate the database from a local file
 ```bash
 docker exec -it iasteroid_app bash
+
+php artisan migrate:rollback
+
+php artisan migrate
+
 php artisan db:seed
+
 ```

@@ -6,10 +6,10 @@ use App\Exceptions\HazardousParam;
 use App\Services\Iasteroid;
 use Closure;
 use Illuminate\Http\Request;
+use Illuminate\Http\JsonResponse;
 
 class HazardousParamValidator
 {
-
     /**
      * Handle an incoming request.
      *
@@ -17,7 +17,7 @@ class HazardousParamValidator
      * @param \Closure(\Illuminate\Http\Request): (\Illuminate\Http\Response|\Illuminate\Http\RedirectResponse)  $next
      * @return \Illuminate\Http\Response|\Illuminate\Http\RedirectResponse
      */
-    public function handle(Request $request, Closure $next)
+    public function handle(Request $request, Closure $next): JsonResponse
     {
         $hazardous = $request->get(Iasteroid::KEY_HAZARDOUS);
         if (
