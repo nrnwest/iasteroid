@@ -5,8 +5,8 @@ namespace App\Http\Middleware;
 use App\Exceptions\HazardousParam;
 use App\Services\Iasteroid;
 use Closure;
-use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Request;
 
 class HazardousParamValidator
 {

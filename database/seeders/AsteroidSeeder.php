@@ -17,36 +17,20 @@ class AsteroidSeeder extends Seeder
      */
     public function run(): void
     {
-        $asteroids = new AsteroidData(config('iasteroid.get_data'));
-        foreach ($asteroids->get()->near_earth_objects as $values) {
-            foreach ($values as $asteroidParams) {
-                $approachData = $asteroidParams->close_approach_data[0];
-                $asteroid = new Asteroid();
-                $this->writeAsteroid(
-                    $asteroid,
-                    $asteroidParams->neo_reference_id,
-                    $asteroidParams->name,
-                    $approachData->relative_velocity->kilometers_per_hour,
-                    $approachData->close_approach_date,
-                    (int)$asteroidParams->is_potentially_hazardous_asteroid
-                );
+        $asteroids = new AsteroidData();
+        $dataMethod = config('iasteroid.getData');
+        if ($dataMethod === 'file') {
+            $data = $asteroids->file(config('iasteroid.pathFile'));
+        } else {
+            $data = $asteroids->nasa(config('iasteroid.url'), config('iasteroid.period'));
+        }
+        foreach ($data as $asteroidData) {
+            $asteroid = new Asteroid();
+            foreach ($asteroidData as $k => $v) {
+                $asteroid->{$k} = $v;
             }
+            $asteroid->save();
         }
     }
 
-    private function writeAsteroid(
-        Asteroid $asteroid,
-        string $referenced,
-        string $name,
-        string $speed,
-        string $date,
-        int $hazardous
-    ): void {
-        $asteroid->referenced = $referenced;
-        $asteroid->name = $name;
-        $asteroid->speed = $speed;
-        $asteroid->date = $date;
-        $asteroid->hazardous = $hazardous;
-        $asteroid->save();
-    }
 }

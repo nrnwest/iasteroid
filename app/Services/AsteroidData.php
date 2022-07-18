@@ -4,42 +4,52 @@ declare(strict_types=1);
 
 namespace App\Services;
 
+use App\Exceptions\ErrorPathFile;
+use Illuminate\Support\Collection;
+
 class AsteroidData
 {
     private const START_DATE = '{startDate}';
     private const END_DATE = '{endDate}';
     private const FORMAT_DATE = 'Y-m-d';
 
-    private string $getData;
 
-    /**
-     * @param string $getData file - data from local file, nasa  - data from nasa server
-     */
-    public function __construct(string $getData)
+    public function nasa(string $url, int $day = 3): Collection
     {
-        $this->getData = $getData;
-    }
-
-    public function get()
-    {
-        return self::{$this->getData}();
-    }
-
-    private function nasa()
-    {
+        $periodSeconds = $day * 24 * 60 * 60;
         $search = [self::START_DATE, self::END_DATE];
-
         $replace = [
-            date(self::FORMAT_DATE, (time() - config('iasteroid.period'))),
+            date(self::FORMAT_DATE, (time() - $periodSeconds)),
             date(self::FORMAT_DATE, time())
         ];
-        $url = config('iasteroid.url') . config('iasteroid.api_key');
-        return json_decode(file_get_contents(str_replace($search, $replace, $url)));
+        return $this->get(new Collection(json_decode(file_get_contents(str_replace($search, $replace, $url)))));
     }
 
-    private function file()
+    public function file($pathFile): Collection
     {
-        return json_decode(file_get_contents(config('iasteroid.path_file')));
+        if (!is_file($pathFile)) {
+            throw new ErrorPathFile($pathFile);
+        }
+        return $this->get(new Collection(json_decode(file_get_contents($pathFile))));
+    }
+
+    private function get(Collection $data): Collection
+    {
+        $result = new Collection();
+        foreach ($data->get('near_earth_objects') as $dayData) {
+            foreach ($dayData as $asteroidData) {
+                $approachData = $asteroidData->close_approach_data[0];
+                $result->put(null, [
+                        'referenced' => $asteroidData->neo_reference_id,
+                        'name' => $asteroidData->name,
+                        'speed' => $approachData->relative_velocity->kilometers_per_hour,
+                        'date' => $approachData->close_approach_date,
+                        'hazardous' => (int)$asteroidData->is_potentially_hazardous_asteroid
+                    ]
+                );
+            }
+        }
+        return $result;
     }
 
 }

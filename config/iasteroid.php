@@ -8,15 +8,14 @@ return [
         'str' => 'MacPaw Internship 2022!'
     ],
 
-    'api_key' => 'lG3ctBdAU2Gb46AcogyWr2GuTaOj4wkAY2emtXv9',
-    'url' => 'https://api.nasa.gov/neo/rest/v1/feed?start_date={startDate}&end_date={endDate}&api_key=',
+    'url' => 'https://api.nasa.gov/neo/rest/v1/feed?start_date={startDate}&end_date={endDate}&api_key=lG3ctBdAU2Gb46AcogyWr2GuTaOj4wkAY2emtXv9',
 
-    // how many days to receive data? indicate in seconds
-    'period' => 259200,
+    // how many days 3
+    'period' => 3,
 
     // local file with data about asteroids
-    'path_file' => __DIR__ . '/../resources/asteroid/asteroid.json',
+    'pathFile' => __DIR__ . '/../resources/asteroid/asteroid.json',
 
     // file || nasa
-    'get_data' => 'nasa',
+    'getData' => 'nasa',
 ];
