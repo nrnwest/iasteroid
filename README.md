@@ -19,7 +19,7 @@ php artisan migrate
 
 php artisan db:seed
 
-php vendor/phpunit/phpunit/phpunit
+php artisan test --parallel
 
 ```
 ### Installed in the system swagger
@@ -48,4 +48,9 @@ php artisan migrate
 
 php artisan db:seed
 
+```
+
+### Run Tests
+```bash
+php artisan test --parallel
 ```
