@@ -32,7 +32,7 @@ class AsteroidDataTest extends TestCase
             "referenced" => "3754388",
             "name" => "(2016 NB1)",
             "speed" => "30389.3160215687",
-            "date" => "2022-07-11",
+            "date" => "2022-07-12",
             "hazardous" => 1,
         ]]];
     }
