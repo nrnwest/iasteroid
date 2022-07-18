@@ -25,7 +25,7 @@ class AsteroidData
         return $this->get(new Collection(json_decode(file_get_contents(str_replace($search, $replace, $url)))));
     }
 
-    public function file($pathFile): Collection
+    public function file(string $pathFile): Collection
     {
         if (!is_file($pathFile)) {
             throw new ErrorPathFile($pathFile);

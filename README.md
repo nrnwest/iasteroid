@@ -52,5 +52,8 @@ php artisan db:seed
 
 ### Run Tests
 ```bash
+docker exec -it iasteroid_app bash
+
 php artisan test --parallel
+
 ```

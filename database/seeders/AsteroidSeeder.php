@@ -1,6 +1,6 @@
 <?php
 
-namespace Database\Seeders;
+declare(strict_types=1);
 
 namespace Database\Seeders;
 
@@ -10,6 +10,7 @@ use Illuminate\Database\Seeder;
 
 class AsteroidSeeder extends Seeder
 {
+    private const METHOD_FILE = 'file';
     /**
      * Run the database seeds.
      *
@@ -18,8 +19,7 @@ class AsteroidSeeder extends Seeder
     public function run(): void
     {
         $asteroids = new AsteroidData();
-        $dataMethod = config('iasteroid.getData');
-        if ($dataMethod === 'file') {
+        if (config('iasteroid.getData') === self::METHOD_FILE) {
             $data = $asteroids->file(config('iasteroid.pathFile'));
         } else {
             $data = $asteroids->nasa(config('iasteroid.url'), config('iasteroid.period'));
