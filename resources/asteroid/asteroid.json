@@ -86,7 +86,7 @@
                 "is_potentially_hazardous_asteroid": true,
                 "close_approach_data": [
                     {
-                        "close_approach_date": "2022-07-11",
+                        "close_approach_date": "2022-07-12",
                         "close_approach_date_full": "2022-Jul-11 02:07",
                         "epoch_date_close_approach": 1657505220000,
                         "relative_velocity": {

@@ -13,7 +13,9 @@ class Iasteroid
     public const HAZARDOUS_FALSE = 'false';
     public const HAZARDOUS_TRUE = 'true';
 
-    private const COLUMN_ORDER = 'speed';
+    private const COLUMN_SPEED = 'speed';
+    private const COLUMN_DATE = 'date';
+    private const ORDER_DESC = 'desc';
 
     public function getHi(): Collection
     {
@@ -24,14 +26,16 @@ class Iasteroid
 
     public function getHazardousAsteroids(): Collection
     {
-        return Asteroid::where(self::KEY_HAZARDOUS, 1)->get();
+        return Asteroid::where(self::KEY_HAZARDOUS, 1)
+            ->orderBy(self::COLUMN_DATE, self::ORDER_DESC)
+            ->get();
     }
 
     public function getFastest(?string $hazardous): Collection
     {
         $hazardous = ($hazardous === self::HAZARDOUS_FALSE || $hazardous === null) ? 0 : 1;
         return Asteroid::where(self::KEY_HAZARDOUS, $hazardous)
-            ->orderBy(self::COLUMN_ORDER, 'desc')
+            ->orderBy(self::COLUMN_SPEED, self::ORDER_DESC)
             ->get();
     }
 
