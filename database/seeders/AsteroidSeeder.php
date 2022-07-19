@@ -16,17 +16,16 @@ class AsteroidSeeder extends Seeder
      *
      * @return void
      */
-    public function run(): void
+    public function run(AsteroidData $asteroidsData): void
     {
-        $asteroids = new AsteroidData();
         if (config('iasteroid.getData') === self::METHOD_FILE) {
-            $data = $asteroids->file(config('iasteroid.pathFile'));
+            $data = $asteroidsData->file(config('iasteroid.pathFile'));
         } else {
-            $data = $asteroids->nasa(config('iasteroid.url'), config('iasteroid.period'));
+            $data = $asteroidsData->nasa(config('iasteroid.url'), config('iasteroid.period'));
         }
-        foreach ($data as $asteroidData) {
+        foreach ($data as $asteroids) {
             $asteroid = new Asteroid();
-            foreach ($asteroidData as $k => $v) {
+            foreach ($asteroids as $k => $v) {
                 $asteroid->{$k} = $v;
             }
             $asteroid->save();
