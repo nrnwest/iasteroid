@@ -11,11 +11,7 @@ use Illuminate\Database\Seeder;
 class AsteroidSeeder extends Seeder
 {
     private const METHOD_FILE = 'file';
-    /**
-     * Run the database seeds.
-     *
-     * @return void
-     */
+
     public function run(AsteroidData $asteroidsData): void
     {
         if (config('iasteroid.getData') === self::METHOD_FILE) {
@@ -31,5 +27,4 @@ class AsteroidSeeder extends Seeder
             $asteroid->save();
         }
     }
-
 }

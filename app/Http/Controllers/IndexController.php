@@ -33,5 +33,4 @@ class IndexController extends Controller
     {
         return response()->json($this->iasteroid->getHi());
     }
-
 }

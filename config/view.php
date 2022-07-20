@@ -13,7 +13,7 @@ return [
     |
     */
     'paths' => [
-        resource_path('views/' . env('RACE_VIEW'))
+        resource_path('views/')
     ],
 
     /*
