@@ -54,5 +54,4 @@ class AsteroidData
         }
         return $result;
     }
-
 }
