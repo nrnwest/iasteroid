@@ -14,8 +14,10 @@ class AsteroidData
     private const FORMAT_DATE = 'Y-m-d';
 
 
-    public function nasa(string $url, int $day = 3): Collection
+    public function nasa(?string $url = null, int $day = null): Collection
     {
+        $url = $url === null ? config('iasteroid.url') : $url;
+        $day = $day === null ? config('iasteroid.period') : $day;
         $periodSeconds = $day * 24 * 60 * 60;
         $search = [self::START_DATE, self::END_DATE];
         $replace = [
@@ -25,8 +27,9 @@ class AsteroidData
         return $this->get(new Collection(json_decode(file_get_contents(str_replace($search, $replace, $url)))));
     }
 
-    public function file(string $pathFile): Collection
+    public function file(?string $pathFile = null): Collection
     {
+        $pathFile = $pathFile === null ? config('iasteroid.pathFile') : $pathFile;
         if (!is_file($pathFile)) {
             throw new ErrorPathFile($pathFile);
         }
