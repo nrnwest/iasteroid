@@ -16,8 +16,8 @@ class AsteroidSeeder extends Seeder
         $data = $asteroidsData->$methodData();
         foreach ($data as $asteroids) {
             $asteroid = new Asteroid();
-            foreach ($asteroids as $k => $v) {
-                $asteroid->{$k} = $v;
+            foreach ($asteroids as $field => $value) {
+                $asteroid->$field = $value;
             }
             $asteroid->save();
         }
