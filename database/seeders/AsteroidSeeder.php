@@ -7,12 +7,13 @@ namespace Database\Seeders;
 use App\Models\Asteroid;
 use App\Services\AsteroidData;
 use Illuminate\Database\Seeder;
+use Illuminate\Config\Repository;
 
 class AsteroidSeeder extends Seeder
 {
-    public function run(AsteroidData $asteroidsData): void
+    public function run(AsteroidData $asteroidsData, Repository $config): void
     {
-        $methodData = config('iasteroid.getData');
+        $methodData = $config->get('iasteroid.getData');
         $data = $asteroidsData->$methodData();
         foreach ($data as $asteroids) {
             $asteroid = new Asteroid();
