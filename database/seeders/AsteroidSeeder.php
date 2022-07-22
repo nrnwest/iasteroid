@@ -10,9 +10,9 @@ use Illuminate\Database\Seeder;
 
 class AsteroidSeeder extends Seeder
 {
-    public function run(AsteroidData $asteroidsData, ?string $methodData = null): void
+    public function run(AsteroidData $asteroidsData): void
     {
-        $methodData = $methodData === null ? config('iasteroid.getData') : $methodData;
+        $methodData = config('iasteroid.getData');
         $data = $asteroidsData->$methodData();
         foreach ($data as $asteroids) {
             $asteroid = new Asteroid();
